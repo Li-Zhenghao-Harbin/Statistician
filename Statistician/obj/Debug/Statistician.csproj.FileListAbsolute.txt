@@ -1,0 +1,10 @@
+D:\Statistician\Statistician\bin\Debug\Statistician.exe.config
+D:\Statistician\Statistician\bin\Debug\Statistician.exe
+D:\Statistician\Statistician\bin\Debug\Statistician.pdb
+D:\Statistician\Statistician\obj\Debug\Statistician.csproj.AssemblyReference.cache
+D:\Statistician\Statistician\obj\Debug\Statistician.Properties.Resources.resources
+D:\Statistician\Statistician\obj\Debug\Statistician.csproj.GenerateResource.cache
+D:\Statistician\Statistician\obj\Debug\Statistician.csproj.CoreCompileInputs.cache
+D:\Statistician\Statistician\obj\Debug\Statistician.exe
+D:\Statistician\Statistician\obj\Debug\Statistician.pdb
+D:\Statistician\Statistician\obj\Debug\Statistician.FrmMain.resources
