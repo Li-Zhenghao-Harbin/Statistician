@@ -28,6 +28,7 @@ namespace Statistician
         readonly private string[] xList = new string[monthCount] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
         const int chartCount = 2;
         Chart[] charts = new Chart[chartCount];
+        const string seriesName = "SeriesData";
         // data
         static int dataCount = 0;
         List<string> date = new List<string>();
@@ -42,6 +43,8 @@ namespace Statistician
         List<int> player2UsedCardsCount = new List<int>();
         List<int> player1DrewShapesCount = new List<int>();
         List<int> player2DrewShapesCount = new List<int>();
+        List<double> player1MovedDistance = new List<double>();
+        List<double> player2MovedDistance = new List<double>();
         List<int> winner = new List<int>();
 
         int[] yListDuration = new int[monthCount];
@@ -51,6 +54,8 @@ namespace Statistician
         int[] yList2UsedCardsCount = new int[monthCount];
         int[] yList1DrewShapesCount = new int[monthCount];
         int[] yList2DrewShapesCount = new int[monthCount];
+        double[] yList1MovedDistane = new double[monthCount];
+        double[] yList2MovedDistane = new double[monthCount];
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -80,7 +85,7 @@ namespace Statistician
             dataCount = 0;
             for (int i = 0; i < dataLineLength; i++, dataCount++)
             {
-                string[] line = dataLine[i].Split(',');
+                string[] line = dataLine[i].Split(';');
                 date.Add(line[0]);
                 //dateYears.Add(Convert.ToInt32(dataLineContent[i, 0].Split('/')[2]));
                 dateYears.Add(Convert.ToInt32(line[0].Split('/')[2]));
@@ -94,7 +99,9 @@ namespace Statistician
                 player2UsedCardsCount.Add(Convert.ToInt32(line[8]));
                 player1DrewShapesCount.Add(Convert.ToInt32(line[9]));
                 player2DrewShapesCount.Add(Convert.ToInt32(line[10]));
-                winner.Add(Convert.ToInt32(line[11]));
+                player1MovedDistance.Add(Convert.ToDouble(line[11]));
+                player2MovedDistance.Add(Convert.ToDouble(line[12]));
+                winner.Add(Convert.ToInt32(line[13]));
                 for (int j = 0; j < dataTypeCount; j++)
                 {
                     dataLineContent[i, j] = line[j];
@@ -131,7 +138,9 @@ namespace Statistician
             for (int i = 0; i < monthCount; i++)
             {
                 yListDuration[i] = yList1FoundCardsCount[i] = yList2FoundCardsCount[i] =
-                    yList1UsedCardsCount[i] = yList2UsedCardsCount[i] = yList1DrewShapesCount[i] = yList2DrewShapesCount[i] = 0;
+                    yList1UsedCardsCount[i] = yList2UsedCardsCount[i] =
+                    yList1DrewShapesCount[i] = yList2DrewShapesCount[i] = 0;
+                yList1MovedDistane[i] = yList2MovedDistane[i] = 0;
             }
             for (int i = 0; i < dataCount; i++)
             {
@@ -145,29 +154,36 @@ namespace Statistician
                     yList2UsedCardsCount[currentMonth] += player2UsedCardsCount[i];
                     yList1DrewShapesCount[currentMonth] += player1DrewShapesCount[i];
                     yList2DrewShapesCount[currentMonth] += player2DrewShapesCount[i];
+                    yList1MovedDistane[currentMonth] += player1MovedDistance[i];
+                    yList2MovedDistane[currentMonth] += player2MovedDistance[i];
                 }
             }
             switch (Combo_DataTarget.SelectedIndex)
             {
                 case 0:
-                    charts[0].Series["SeriesPrice"].Points.DataBindXY(xList, yListDuration);
-                    charts[1].Series["SeriesPrice"].Points.DataBindXY(xList, yListDuration);
+                    charts[0].Series[seriesName].Points.DataBindXY(xList, yListDuration);
+                    charts[1].Series[seriesName].Points.DataBindXY(xList, yListDuration);
                     SetChartTitle("Duration");
                     break;
                 case 1:
-                    charts[0].Series["SeriesPrice"].Points.DataBindXY(xList, yList1FoundCardsCount);
-                    charts[1].Series["SeriesPrice"].Points.DataBindXY(xList, yList2FoundCardsCount);
+                    charts[0].Series[seriesName].Points.DataBindXY(xList, yList1FoundCardsCount);
+                    charts[1].Series[seriesName].Points.DataBindXY(xList, yList2FoundCardsCount);
                     SetChartTitle("Found cards count");
                     break;
                 case 2:
-                    charts[0].Series["SeriesPrice"].Points.DataBindXY(xList, yList1UsedCardsCount);
-                    charts[1].Series["SeriesPrice"].Points.DataBindXY(xList, yList2UsedCardsCount);
+                    charts[0].Series[seriesName].Points.DataBindXY(xList, yList1UsedCardsCount);
+                    charts[1].Series[seriesName].Points.DataBindXY(xList, yList2UsedCardsCount);
                     SetChartTitle("Used cards count");
                     break;
                 case 3:
-                    charts[0].Series["SeriesPrice"].Points.DataBindXY(xList, yList1DrewShapesCount);
-                    charts[1].Series["SeriesPrice"].Points.DataBindXY(xList, yList2DrewShapesCount);
+                    charts[0].Series[seriesName].Points.DataBindXY(xList, yList1DrewShapesCount);
+                    charts[1].Series[seriesName].Points.DataBindXY(xList, yList2DrewShapesCount);
                     SetChartTitle("Drew shapes count");
+                    break;
+                case 4:
+                    charts[0].Series[seriesName].Points.DataBindXY(xList, yList1MovedDistane);
+                    charts[1].Series[seriesName].Points.DataBindXY(xList, yList2MovedDistane);
+                    SetChartTitle("Moved distance");
                     break;
             }
         }
@@ -244,7 +260,7 @@ namespace Statistician
 
         private void aboutStatisticianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Statistician\n\nalpha\n\nAnthor: Zhenghao Li");
+            MessageBox.Show("Statistician\n\nbeta\n\nMar 2023\n\nAuthor: Zhenghao Li");
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

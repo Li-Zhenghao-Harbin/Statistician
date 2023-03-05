@@ -42,7 +42,9 @@ namespace Statistician
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutStatisticianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.Lbl_DataPath = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
@@ -59,8 +61,6 @@ namespace Statistician
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
             this.Chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.refreshGraphToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutStatisticianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip.SuspendLayout();
             this.StatusStrip.SuspendLayout();
             this.ToolStrip.SuspendLayout();
@@ -74,7 +74,6 @@ namespace Statistician
             // 
             // MenuStrip
             // 
-            this.MenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.MenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -125,6 +124,15 @@ namespace Statistician
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(89, 35);
             this.viewToolStripMenuItem.Text = "&View";
             // 
+            // refreshGraphToolStripMenuItem
+            // 
+            this.refreshGraphToolStripMenuItem.Enabled = false;
+            this.refreshGraphToolStripMenuItem.Name = "refreshGraphToolStripMenuItem";
+            this.refreshGraphToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.refreshGraphToolStripMenuItem.Size = new System.Drawing.Size(399, 44);
+            this.refreshGraphToolStripMenuItem.Text = "&Refresh Graph";
+            this.refreshGraphToolStripMenuItem.Click += new System.EventHandler(this.refreshGraphToolStripMenuItem_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -132,6 +140,13 @@ namespace Statistician
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(105, 35);
             this.aboutToolStripMenuItem.Text = "&About";
+            // 
+            // aboutStatisticianToolStripMenuItem
+            // 
+            this.aboutStatisticianToolStripMenuItem.Name = "aboutStatisticianToolStripMenuItem";
+            this.aboutStatisticianToolStripMenuItem.Size = new System.Drawing.Size(366, 44);
+            this.aboutStatisticianToolStripMenuItem.Text = "&About Statistician...";
+            this.aboutStatisticianToolStripMenuItem.Click += new System.EventHandler(this.aboutStatisticianToolStripMenuItem_Click);
             // 
             // StatusStrip
             // 
@@ -229,7 +244,8 @@ namespace Statistician
             "Duration",
             "Found cards count",
             "Used cards count",
-            "Drew shapes count"});
+            "Drew shapes count",
+            "Moved distance"});
             this.Combo_DataTarget.Name = "Combo_DataTarget";
             this.Combo_DataTarget.Size = new System.Drawing.Size(150, 39);
             this.Combo_DataTarget.SelectedIndexChanged += new System.EventHandler(this.Combo_DataTarget_SelectedIndexChanged);
@@ -304,7 +320,7 @@ namespace Statistician
             this.Chart1.Location = new System.Drawing.Point(0, 0);
             this.Chart1.Name = "Chart1";
             series1.ChartArea = "ChartArea";
-            series1.Name = "SeriesPrice";
+            series1.Name = "SeriesData";
             this.Chart1.Series.Add(series1);
             this.Chart1.Size = new System.Drawing.Size(2180, 727);
             this.Chart1.TabIndex = 5;
@@ -324,28 +340,12 @@ namespace Statistician
             this.Chart2.Location = new System.Drawing.Point(0, 0);
             this.Chart2.Name = "Chart2";
             series2.ChartArea = "ChartArea";
-            series2.Name = "SeriesPrice";
+            series2.Name = "SeriesData";
             this.Chart2.Series.Add(series2);
             this.Chart2.Size = new System.Drawing.Size(2180, 620);
             this.Chart2.TabIndex = 6;
             title2.Name = "Title";
             this.Chart2.Titles.Add(title2);
-            // 
-            // refreshGraphToolStripMenuItem
-            // 
-            this.refreshGraphToolStripMenuItem.Enabled = false;
-            this.refreshGraphToolStripMenuItem.Name = "refreshGraphToolStripMenuItem";
-            this.refreshGraphToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.refreshGraphToolStripMenuItem.Size = new System.Drawing.Size(399, 44);
-            this.refreshGraphToolStripMenuItem.Text = "&Refresh Graph";
-            this.refreshGraphToolStripMenuItem.Click += new System.EventHandler(this.refreshGraphToolStripMenuItem_Click);
-            // 
-            // aboutStatisticianToolStripMenuItem
-            // 
-            this.aboutStatisticianToolStripMenuItem.Name = "aboutStatisticianToolStripMenuItem";
-            this.aboutStatisticianToolStripMenuItem.Size = new System.Drawing.Size(366, 44);
-            this.aboutStatisticianToolStripMenuItem.Text = "&About Statistician...";
-            this.aboutStatisticianToolStripMenuItem.Click += new System.EventHandler(this.aboutStatisticianToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
