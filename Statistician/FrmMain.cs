@@ -148,14 +148,14 @@ namespace Statistician
                 {
                     int currentMonth = Convert.ToInt32(date[i].Split('/')[0]) - 1;
                     yListDuration[currentMonth] += duration[i];
-                    yList1FoundCardsCount[currentMonth] += player1FoundCardsCount[i];
-                    yList2FoundCardsCount[currentMonth] += player2FoundCardsCount[i];
-                    yList1UsedCardsCount[currentMonth] += player1UsedCardsCount[i];
-                    yList2UsedCardsCount[currentMonth] += player2UsedCardsCount[i];
-                    yList1DrewShapesCount[currentMonth] += player1DrewShapesCount[i];
-                    yList2DrewShapesCount[currentMonth] += player2DrewShapesCount[i];
-                    yList1MovedDistane[currentMonth] += player1MovedDistance[i];
-                    yList2MovedDistane[currentMonth] += player2MovedDistance[i];
+                    yList1FoundCardsCount[currentMonth] += player1FoundCardsCount[i] < 0 ? 0 : player1FoundCardsCount[i];
+                    yList2FoundCardsCount[currentMonth] += player2FoundCardsCount[i] < 0 ? 0 : player2FoundCardsCount[i];
+                    yList1UsedCardsCount[currentMonth] += player1UsedCardsCount[i] < 0 ? 0 : player1UsedCardsCount[i];
+                    yList2UsedCardsCount[currentMonth] += player2UsedCardsCount[i] < 0 ? 0 : player2UsedCardsCount[i];
+                    yList1DrewShapesCount[currentMonth] += player1DrewShapesCount[i] < 0 ? 0 : player1DrewShapesCount[i];
+                    yList2DrewShapesCount[currentMonth] += player2DrewShapesCount[i] < 0 ? 0 : player2DrewShapesCount[i];
+                    yList1MovedDistane[currentMonth] += player1MovedDistance[i] < 0 ? 0 : player1MovedDistance[i];
+                    yList2MovedDistane[currentMonth] += player2MovedDistance[i] < 0 ? 0 : player2MovedDistance[i];
                 }
             }
             switch (Combo_DataTarget.SelectedIndex)
@@ -260,7 +260,7 @@ namespace Statistician
 
         private void aboutStatisticianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Statistician\n\nbeta\n\nMar 2023\n\nAuthor: Zhenghao Li");
+            MessageBox.Show("Statistician\n\nv 1.0.1\n\nMar 2023\n\nAuthor: Zhenghao Li");
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

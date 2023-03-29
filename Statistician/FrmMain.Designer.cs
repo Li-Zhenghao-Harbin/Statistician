@@ -247,7 +247,7 @@ namespace Statistician
             "Drew shapes count",
             "Moved distance"});
             this.Combo_DataTarget.Name = "Combo_DataTarget";
-            this.Combo_DataTarget.Size = new System.Drawing.Size(150, 39);
+            this.Combo_DataTarget.Size = new System.Drawing.Size(300, 39);
             this.Combo_DataTarget.SelectedIndexChanged += new System.EventHandler(this.Combo_DataTarget_SelectedIndexChanged);
             // 
             // Lbl_GamePlayer

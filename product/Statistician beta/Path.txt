@@ -1,1 +1,1 @@
-﻿D:\Rehabilitation Game\Assets\Data\data.txt
+﻿D:\RG product\Rehabilitation Game v 1.0.3\Rehabilitation Game_Data\Data\data.txt
