@@ -7,3 +7,4 @@ D:\Statistician\Statistician\obj\Release\Statistician.csproj.GenerateResource.ca
 D:\Statistician\Statistician\obj\Release\Statistician.csproj.CoreCompileInputs.cache
 D:\Statistician\Statistician\obj\Release\Statistician.exe
 D:\Statistician\Statistician\obj\Release\Statistician.pdb
+D:\Statistician\Statistician\obj\Release\Statistician.csproj.AssemblyReference.cache

@@ -163,7 +163,7 @@ namespace Statistician
                 case 0:
                     charts[0].Series[seriesName].Points.DataBindXY(xList, yListDuration);
                     charts[1].Series[seriesName].Points.DataBindXY(xList, yListDuration);
-                    SetChartTitle("Duration");
+                    SetChartTitle("Duration (second)");
                     break;
                 case 1:
                     charts[0].Series[seriesName].Points.DataBindXY(xList, yList1FoundCardsCount);
@@ -183,7 +183,7 @@ namespace Statistician
                 case 4:
                     charts[0].Series[seriesName].Points.DataBindXY(xList, yList1MovedDistane);
                     charts[1].Series[seriesName].Points.DataBindXY(xList, yList2MovedDistane);
-                    SetChartTitle("Moved distance");
+                    SetChartTitle("Moved distance (meter)");
                     break;
             }
         }
@@ -260,7 +260,7 @@ namespace Statistician
 
         private void aboutStatisticianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Statistician\n\nv 1.0.1\n\nMar 2023\n\nAuthor: Zhenghao Li");
+            MessageBox.Show("Statistician\n\nv 1.0.2\n\nApr 2023\n\nAuthor: Zhenghao Li");
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
